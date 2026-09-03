@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --color-background: #080b0e;
+  --color-foreground: #e6ebe8;
+  --color-card: #10151a;
+  --color-card-foreground: #e6ebe8;
+  --color-popover: #12181e;
+  --color-popover-foreground: #e6ebe8;
+  --color-muted: #171d24;
+  --color-muted-foreground: #8b9690;
+  --color-primary: #5d9b94;
+  --color-primary-foreground: #08110f;
+  --color-secondary: #1c242c;
+  --color-secondary-foreground: #d5ddd8;
+  --color-accent: #5d9b94;
+  --color-accent-foreground: #08110f;
+  --color-destructive: #c17f5a;
+  --color-destructive-foreground: #1a0e08;
+  --color-border: #252c32;
+  --color-input: #252c32;
+  --color-ring: #5d9b94;
+  --color-foam: #c5ddd8;
+  --color-warn: #c17f5a;
+  --color-rapid: #7ea58e;
+  --color-deep: #0c1218;
+  --color-sheet: #0e1419;
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius: 0.75rem;
+
+  --shadow-border: 0 0 0 1px rgba(230, 235, 232, 0.07);
+  --shadow-border-hover: 0 0 0 1px rgba(230, 235, 232, 0.13);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  html,
+  body,
+  #app {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    min-height: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-serif);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -48;
+  }
+}
+
+@keyframes flow-dash-rev {
+  to {
+    stroke-dashoffset: 48;
+  }
+}
+
+.flow-surface {
+  animation: flow-dash 2.8s linear infinite;
+}
+
+.flow-deep {
+  animation: flow-dash-rev 4.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-surface,
+  .flow-deep {
+    animation: none;
+  }
+}
