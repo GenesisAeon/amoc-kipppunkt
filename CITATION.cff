@@ -1,0 +1,57 @@
+cff-version: 1.2.0
+message: >
+  If you use this software in your research, please cite it using the metadata below.
+title: "AMOC-Kipppunkt: interactive UTAC-logistic sandbox for amoc-utac (P18)"
+abstract: >
+  Interactive companion to GenesisAeon Package 18 (amoc-utac). Ports the
+  calibrated UTAC-logistic ODE (H_star = K*tanh(sigma*Gamma), dH/dt =
+  r*H*(H_star/K - H/K)) and the CREP Gamma composition (0.30 C + 0.35 R +
+  0.20 E + 0.15*(1-P)) directly from the package's constants.py and
+  crep_amoc.py. Displays the corrected Ditlevsen et al. tipping-year
+  estimate and the IPCC AR6 consensus position alongside the live
+  simulation, both explicitly labelled as context rather than the
+  sandbox's own output.
+version: "0.1.0"
+date-released: "2026-09-03"
+license: MIT
+repository-code: "https://github.com/GenesisAeon/amoc-kipppunkt"
+keywords:
+  - AMOC
+  - tipping point
+  - UTAC
+  - CREP
+  - ocean circulation
+  - GenesisAeon
+authors:
+  - name: "MOR Research Collective / GenesisAeon"
+    email: "joberoemer@gmail.com"
+references:
+  - type: software
+    title: "amoc-utac: Atlantic Meridional Overturning Circulation as UTAC System"
+    repository-code: "https://github.com/GenesisAeon/amoc-utac"
+    doi: "10.5281/zenodo.19645351"
+  - type: article
+    title: "Physics-based early warning signal shows that AMOC is on tipping course"
+    authors:
+      - family-names: van Westen
+        given-names: René M.
+      - family-names: Kliphuis
+        given-names: Michael
+      - family-names: Dijkstra
+        given-names: Henk A.
+    journal: "Science Advances"
+    volume: 10
+    issue: 6
+    year: 2024
+    doi: "10.1126/sciadv.adk1189"
+  - type: article
+    title: "Warning of a forthcoming collapse of the Atlantic meridional overturning circulation"
+    authors:
+      - family-names: Ditlevsen
+        given-names: Peter
+      - family-names: Ditlevsen
+        given-names: Susanne
+    journal: "Nature Communications"
+    volume: 14
+    year: 2023
+    doi: "10.1038/s41467-023-39810-w"

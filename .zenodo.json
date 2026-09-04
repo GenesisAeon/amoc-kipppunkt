@@ -1,0 +1,28 @@
+{
+  "title": "AMOC-Kipppunkt — interactive UTAC-logistic sandbox for amoc-utac (P18)",
+  "description": "<p>Interactive physics sandbox for the Atlantic Meridional Overturning Circulation, porting the calibrated UTAC-logistic ODE and CREP Gamma composition directly from GenesisAeon's amoc-utac (P18) constants and crep_amoc.py -- no invented numbers. Displays the corrected Ditlevsen et al. tipping-year estimate and the IPCC AR6 consensus position as explicit context, not as the sandbox's own prediction. Part of the <strong>GenesisAeon</strong> interactive-sandbox series.</p>",
+  "creators": [
+    {
+      "name": "Römer, Johann",
+      "affiliation": "Independent Researcher / MOR Research Collective"
+    }
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "version": "0.1.0",
+  "keywords": [
+    "GenesisAeon",
+    "AMOC",
+    "tipping point",
+    "UTAC",
+    "CREP",
+    "interactive sandbox",
+    "open-science"
+  ],
+  "communities": [
+    {
+      "identifier": "genesisaeon"
+    }
+  ]
+}
