@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "generated": "2026-09-05",
+  "app": {
+    "id": "amoc-kipppunkt",
+    "title": "AMOC-Kipppunkt",
+    "kind": "kipppunkt",
+    "live_url": "https://amoc-kipppunkt.vercel.app",
+    "repo_url": "https://github.com/GenesisAeon/amoc-kipppunkt",
+    "llms_txt_url": "https://amoc-kipppunkt.vercel.app/llms.txt"
+  },
+  "source_package": {
+    "name": "amoc-utac",
+    "package_id": 18,
+    "repo_url": "https://github.com/GenesisAeon/amoc-utac",
+    "zenodo_doi": "10.5281/zenodo.19645351",
+    "ported_note": "1:1 port of constants.py, freshwater.py, crep_amoc.py, system.py, tipping_predictor.py"
+  },
+  "primary_sources": [
+    { "authors": "van Westen, R.M. et al.", "year": 2024, "title": "Physics-based early warning signal shows that AMOC is on tipping course", "journal": "Science Advances", "doi": "10.1126/sciadv.adk1189" },
+    { "authors": "Ditlevsen, P. & Ditlevsen, S. (with correction)", "year": 2025, "title": "AMOC tipping-time correction", "doi": "10.1038/s41467-025-63201-y" },
+    { "authors": "Morr, A. et al.", "year": 2026, "title": "Critique of the Ditlevsen fingerprint method (preprint, not peer-reviewed)", "doi": null, "note": "arXiv:2604.20341" },
+    { "authors": "IPCC AR6 Working Group I", "year": 2021, "title": "Summary for Policymakers, Section C.3.4", "doi": null }
+  ],
+  "verified_quantities": [
+    { "name": "AMOC_PRESENT_SV", "value": 18.0, "unit": "Sv", "source": "amoc-utac constants.py" },
+    { "name": "AMOC_RAPID_MEAN_SV", "value": 17.0, "unit": "Sv", "source": "RAPID array mean" },
+    { "name": "UTAC_SIGMA", "value": 2.2, "unit": null, "source": "amoc-utac constants.py" },
+    { "name": "AMOC_TIPPING_ETA", "value": 0.5, "unit": null, "source": "Chavent et al. 2026 setpoint" },
+    { "name": "CREP_WEIGHTS", "value": { "C": 0.3, "R": 0.35, "E": 0.2, "P": 0.15 }, "unit": null, "source": "crep_amoc.py" },
+    { "name": "DITLEVSEN_CENTRAL_YEAR", "value": 2065, "unit": "year", "source": "Ditlevsen correction, DOI 10.1038/s41467-025-63201-y" },
+    { "name": "DITLEVSEN_RANGE", "value": [2037, 2109], "unit": "year", "source": "Ditlevsen correction" },
+    { "name": "AR6_WEAKENING_SSP126_PCT", "value": [24.0, 4.0, 46.0], "unit": "percent", "source": "IPCC AR6 (low, best, high estimate)" },
+    { "name": "AR6_WEAKENING_SSP585_PCT", "value": [39.0, 17.0, 55.0], "unit": "percent", "source": "IPCC AR6 (low, best, high estimate)" }
+  ],
+  "framework_overlay": { "used": true, "terms": ["CREP"], "note": "CREP composition inherited from the source package amoc-utac itself, not added by this sandbox." },
+  "cross_app_relations": [
+    { "app_id": "kaskaden-sandbox", "relation": "shares_modeled_element", "detail": "AMOC is one of the 4 Wunderling tipping elements modeled in kaskaden-sandbox." }
+  ],
+  "disclaimer": "Die ODE und alle Konstanten stammen 1:1 aus amoc-utac. Keine eigenen Fits, keine erfundenen Parameter."
+}

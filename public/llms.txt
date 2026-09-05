@@ -1,0 +1,20 @@
+# AMOC-Kipppunkt
+
+> Physik-Sandbox der atlantischen Umwälzzirkulation (AMOC). Live-Simulation der kalibrierten ODE dH/dt = r·H·(H*/K − H/K) mit H* = K·tanh(σ·Γ), portiert 1:1 aus dem GenesisAeon-Paket amoc-utac (P18).
+
+Kein erfundenes Γ: die CREP-Gewichtung Γ = 0,30·C + 0,35·R + 0,20·E + 0,15·(1−P) stammt aus crep_amoc.py. Aktuelle Literatur eingebettet, nicht überschrieben: Ditlevsen & Ditlevsen 2025 (Korrektur), Morr et al. 2026 (Preprint-Kritik der Fingerprint-Methode), IPCC AR6 SPM C.3.4 (medium confidence gegen abrupten Kollaps vor 2100).
+
+## Quellen
+- Van Westen et al., Science Advances, DOI 10.1126/sciadv.adk1189
+- Ditlevsen-Korrektur, DOI 10.1038/s41467-025-63201-y
+- IPCC AR6 WG1 SPM, Abschnitt C.3.4
+- Quellpaket: https://github.com/GenesisAeon/amoc-utac (Zenodo DOI 10.5281/zenodo.19645351)
+
+## Maschinenlesbar
+- [context.json](/context.json) — Konstanten, Zitate, Ehrlichkeits-Flags
+- Schema: https://github.com/GenesisAeon/apps-hub/blob/main/docs/ai-context-schema.md
+
+## Ökosystem
+- Teil der GenesisAeon Apps-Hub-Reihe: https://github.com/GenesisAeon/apps-hub
+- Zugehöriges Paket im Klimakatalog: https://klimakatalog.vercel.app/p/amoc-utac
+- Modelliert als eines von vier Kipppunkten in https://kaskaden-sandbox.vercel.app
