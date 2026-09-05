@@ -11,7 +11,7 @@ abstract: >
   estimate and the IPCC AR6 consensus position alongside the live
   simulation, both explicitly labelled as context rather than the
   sandbox's own output.
-version: "0.2.0"
+version: "0.3.0"
 date-released: "2026-09-03"
 license: MIT
 repository-code: "https://github.com/GenesisAeon/amoc-kipppunkt"

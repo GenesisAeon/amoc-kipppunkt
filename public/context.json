@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "generated": "2026-09-05",
   "app": {
     "id": "amoc-kipppunkt",
@@ -33,6 +33,22 @@
     { "name": "AR6_WEAKENING_SSP126_PCT", "value": [24.0, 4.0, 46.0], "unit": "percent", "source": "IPCC AR6 (low, best, high estimate)" },
     { "name": "AR6_WEAKENING_SSP585_PCT", "value": [39.0, 17.0, 55.0], "unit": "percent", "source": "IPCC AR6 (low, best, high estimate)" }
   ],
+  "tipping": {
+    "kind": "saddle",
+    "value": 0.3849,
+    "unit": null,
+    "derived_from": "FOLD_AMP = 2/(3*sqrt(3)), saddle-node fold amplitude of the normal form x-x^3 (amoc-utac system.py)",
+    "defined": true
+  },
+  "regen": {
+    "kind": "relaxation_rate",
+    "value": 0.08,
+    "unit": "year^-1",
+    "derived_from": "UTAC_R, the ODE's own relaxation-rate parameter in dH/dt = r*H*(H*/K - H/K)",
+    "defined": true
+  },
+  "comparable": false,
+  "formula_ref": "amoc-utac system.py: dH/dt = r*H*(H*/K - H/K), H* = K*tanh(sigma*Gamma)",
   "framework_overlay": { "used": true, "terms": ["CREP"], "note": "CREP composition inherited from the source package amoc-utac itself, not added by this sandbox." },
   "cross_app_relations": [
     { "app_id": "kaskaden-sandbox", "relation": "shares_modeled_element", "detail": "AMOC is one of the 4 Wunderling tipping elements modeled in kaskaden-sandbox." }
