@@ -13,7 +13,7 @@
     "name": "amoc-utac",
     "package_id": 18,
     "repo_url": "https://github.com/GenesisAeon/amoc-utac",
-    "zenodo_doi": "10.5281/zenodo.19645351",
+    "zenodo_doi": "10.5281/zenodo.21432660",
     "ported_note": "1:1 port of constants.py, freshwater.py, crep_amoc.py, system.py, tipping_predictor.py"
   },
   "primary_sources": [

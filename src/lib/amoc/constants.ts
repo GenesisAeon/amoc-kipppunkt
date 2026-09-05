@@ -53,7 +53,7 @@ export const MORR_2026_CRITIQUE =
   "Morr et al. (2026), arXiv:2604.20341 (Preprint, nicht peer-reviewed): die Ditlevsen-Fingerprint-Wahl ist fragil; alternative Spezifikationen schieben die Schätzung weit nach hinten.";
 
 export const VAN_WESTEN_DOI = "10.1126/sciadv.adk1189";
-export const PACKAGE_ZENODO = "10.5281/zenodo.19645351";
+export const PACKAGE_ZENODO = "10.5281/zenodo.21432660";
 export const PACKAGE_REPO = "https://github.com/GenesisAeon/amoc-utac";
 
 /** Slider span in units of Fov_ref (package freshwater.py). */

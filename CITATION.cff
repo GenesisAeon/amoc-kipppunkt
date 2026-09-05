@@ -29,7 +29,7 @@ references:
   - type: software
     title: "amoc-utac: Atlantic Meridional Overturning Circulation as UTAC System"
     repository-code: "https://github.com/GenesisAeon/amoc-utac"
-    doi: "10.5281/zenodo.19645351"
+    doi: "10.5281/zenodo.21432660"
   - type: article
     title: "Physics-based early warning signal shows that AMOC is on tipping course"
     authors:

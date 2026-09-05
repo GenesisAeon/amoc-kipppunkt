@@ -8,7 +8,7 @@ Kein erfundenes Γ: die CREP-Gewichtung Γ = 0,30·C + 0,35·R + 0,20·E + 0,15�
 - Van Westen et al., Science Advances, DOI 10.1126/sciadv.adk1189
 - Ditlevsen-Korrektur, DOI 10.1038/s41467-025-63201-y
 - IPCC AR6 WG1 SPM, Abschnitt C.3.4
-- Quellpaket: https://github.com/GenesisAeon/amoc-utac (Zenodo DOI 10.5281/zenodo.19645351)
+- Quellpaket: https://github.com/GenesisAeon/amoc-utac (Zenodo DOI 10.5281/zenodo.21432660)
 
 ## Maschinenlesbar
 - [context.json](/context.json) — Konstanten, Zitate, Ehrlichkeits-Flags
