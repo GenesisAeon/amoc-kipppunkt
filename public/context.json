@@ -38,14 +38,16 @@
     "value": 0.3849,
     "unit": null,
     "derived_from": "FOLD_AMP = 2/(3*sqrt(3)), saddle-node fold amplitude of the normal form x-x^3 (amoc-utac system.py)",
-    "defined": true
+    "defined": true,
+    "origin": "model_derived"
   },
   "regen": {
     "kind": "relaxation_rate",
     "value": 0.08,
     "unit": "year^-1",
-    "derived_from": "UTAC_R, the ODE's own relaxation-rate parameter in dH/dt = r*H*(H*/K - H/K)",
-    "defined": true
+    "derived_from": "UTAC_R, the ODE's own relaxation-rate parameter in dH/dt = r*H*(H*/K - H/K) -- a model calibration constant, not a value taken from Ditlevsen or Boers",
+    "defined": true,
+    "origin": "model_derived"
   },
   "comparable": false,
   "formula_ref": "amoc-utac system.py: dH/dt = r*H*(H*/K - H/K), H* = K*tanh(sigma*Gamma)",
