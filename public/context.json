@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.1.0",
-  "generated": "2026-09-05",
+  "schema_version": "1.2.0",
+  "generated": "2026-09-06",
   "app": {
     "id": "amoc-kipppunkt",
     "title": "AMOC-Kipppunkt",
@@ -48,6 +48,14 @@
     "derived_from": "UTAC_R, the ODE's own relaxation-rate parameter in dH/dt = r*H*(H*/K - H/K) -- a model calibration constant, not a value taken from Ditlevsen or Boers",
     "defined": true,
     "origin": "model_derived"
+  },
+  "entropy_bg": {
+    "kind": "undefined",
+    "value": null,
+    "unit": null,
+    "derived_from": "No background energetic/radiative quantity is currently exposed in this sandbox's verified_quantities -- left undefined rather than derived specifically to fill this slot.",
+    "defined": false,
+    "origin": "undefined"
   },
   "comparable": false,
   "formula_ref": "amoc-utac system.py: dH/dt = r*H*(H*/K - H/K), H* = K*tanh(sigma*Gamma)",
