@@ -25,6 +25,8 @@ import {
 import { dHdtModel, utacState } from "@/lib/amoc/physics";
 import { useAmoc } from "@/lib/amoc/store";
 import { cn, fmtDe } from "@/lib/utils";
+import { LocaleSwitch } from "@/components/locale-switch";
+import { useLocale } from "@/lib/i18n/locale";
 
 const SPEEDS = [2, 8, 24];
 
@@ -57,6 +59,7 @@ function useEngine() {
 
 export function AmocSandbox() {
   useEngine();
+  const { t } = useLocale();
   const year = useAmoc((s) => s.year);
   const H = useAmoc((s) => s.H);
   const F = useAmoc((s) => s.F);
@@ -101,24 +104,16 @@ export function AmocSandbox() {
         <header className="border-b border-border">
           <div className="mx-auto flex max-w-6xl flex-wrap items-end justify-between gap-4 px-4 py-5 sm:px-6">
             <div>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                GenesisAeon P18 · amoc-utac
-              </p>
-              <h1 className="mt-1 font-serif text-3xl font-medium tracking-tight sm:text-4xl">
-                AMOC-Kipppunkt
-              </h1>
-              <p className="mt-1 max-w-lg text-sm text-muted-foreground">
-                Physik-Sandbox der Atlantischen Umwälzzirkulation. Die ODE kommt
-                aus dem kalibrierten Paket — keine erfundenen Zahlen.
-              </p>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">{t.eyebrow}</p>
+              <h1 className="mt-1 font-serif text-3xl font-medium tracking-tight sm:text-4xl">{t.title}</h1>
+              <p className="mt-1 max-w-lg text-sm text-muted-foreground">{t.lead}</p>
             </div>
-            <div className="text-right">
+            <div className="flex flex-col items-end gap-3"><LocaleSwitch /><div className="text-right">
               <p className="font-mono text-3xl tabular-nums leading-none sm:text-4xl">
                 {Math.floor(year)}
               </p>
-              <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
-                Simulationsjahr
-              </p>
+              <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{t.simYear}</p>
+            </div>
             </div>
           </div>
         </header>
@@ -132,7 +127,7 @@ export function AmocSandbox() {
               aria-pressed={running}
             >
               {running ? <Pause /> : <Play className="ml-0.5" />}
-              {running ? "Pause" : "Lauf"}
+              {running ? t.pause : t.play}
             </Button>
             <div className="flex rounded-md bg-secondary p-1">
               {SPEEDS.map((s) => (
@@ -157,11 +152,11 @@ export function AmocSandbox() {
               onClick={() => stepYears(50)}
             >
               <FastForward />
-              +50 a
+              {t.step50}
             </Button>
             <Button type="button" variant="ghost" onClick={() => reset()}>
               <RotateCcw />
-              Reset
+              {t.reset}
             </Button>
             <Button
               type="button"
@@ -169,15 +164,15 @@ export function AmocSandbox() {
               onClick={() => kick(collapsed ? 2 : 1)}
             >
               <Zap />
-              {collapsed ? "Anstoßen" : "Störung +1 Sv"}
+              {collapsed ? t.kickRecover : t.kickPerturb}
             </Button>
             <Button
               type="button"
-              variant={ramp ? "default" : "outline"}
+              variant={ramp ? "outline" : "ghost"}
               onClick={() => (ramp ? stopSweep() : startSweep())}
             >
               <Spline />
-              {ramp ? "Sweep stoppen" : "Hysterese-Sweep"}
+              {ramp ? t.sweepStop : t.sweepStart}
             </Button>
           </div>
 
@@ -199,9 +194,7 @@ export function AmocSandbox() {
                   ? "bg-primary text-primary-foreground"
                   : "bg-card text-muted-foreground shadow-[var(--shadow-border)] hover:text-foreground",
               )}
-            >
-              UTAC-Logistik
-            </button>
+            >{t.modelUtac}</button>
             <button
               type="button"
               onClick={() => setModel("fold")}
@@ -211,24 +204,22 @@ export function AmocSandbox() {
                   ? "bg-primary text-primary-foreground"
                   : "bg-card text-muted-foreground shadow-[var(--shadow-border)] hover:text-foreground",
               )}
-            >
-              Bistabile Falte
-            </button>
+            >{t.modelFold}</button>
             <Badge variant={model === "fold" ? (foldWindow ? "on" : "off") : u.bistable ? "on" : "off"}>
               {model === "fold"
                 ? foldWindow
-                  ? "Hysterese-Fenster"
-                  : "außerhalb der Falte"
+                  ? t.badgeHysteresisWindow
+                  : t.badgeOutsideFold
                 : u.bistable
-                  ? "Bistabil"
-                  : "Monostabil"}
+                  ? t.badgeBistable
+                  : t.badgeMonostable}
             </Badge>
-            {collapsed ? <Badge variant="off">H ≈ 0, absorbierend</Badge> : null}
+            {collapsed ? <Badge variant="off">{t.badgeCollapsed}</Badge> : null}
           </div>
           <p className="text-sm text-muted-foreground">
             {model === "utac"
-              ? "Live-ODE: dH/dt = r H (H*/K − H/K) mit H* = K tanh(σ Γ). Ein Attraktor H*; Kollaps bei H = 0 bleibt liegen — ohne Anstoß keine Erholung."
-              : `Sattel-Knoten mit Faltpunkten bei ±Fov_ref = ±${fmtDe(FOV_REF, 1)} Sv (K, r, Fov_ref aus P18). Zeigt die Hysterese dieses Systemtyps.`}
+              ? t.modelHintUtac
+              : t.modelHintFold(fmtDe(FOV_REF, 1))}
           </p>
 
           <div className="grid gap-4 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
@@ -247,23 +238,15 @@ export function AmocSandbox() {
           <div className="grid gap-4 lg:grid-cols-2">
             <section className="rounded-xl bg-card p-4 shadow-[var(--shadow-border)] sm:p-5">
               <div className="flex items-baseline justify-between gap-2">
-                <h2 className="font-serif text-lg font-medium tracking-tight">
-                  Zeitentwicklung
-                </h2>
-                <p className="text-xs text-muted-foreground">
-                  Band RAPID · gestrichelt H* · Marke 2065
-                </p>
+                <h2 className="font-serif text-lg font-medium tracking-tight">{t.timeTitle}</h2>
+                <p className="text-xs text-muted-foreground">{t.timeHint}</p>
               </div>
               <TimeChart history={chartHistory} year={year} />
             </section>
             <section className="rounded-xl bg-card p-4 shadow-[var(--shadow-border)] sm:p-5">
               <div className="flex items-baseline justify-between gap-2">
-                <h2 className="font-serif text-lg font-medium tracking-tight">
-                  Hysterese
-                </h2>
-                <p className="text-xs text-muted-foreground">
-                  H gegen F · Falte ±{fmtDe(FOV_REF, 1)} Sv
-                </p>
+                <h2 className="font-serif text-lg font-medium tracking-tight">{t.hystTitle}</h2>
+                <p className="text-xs text-muted-foreground">{t.hystHint(fmtDe(FOV_REF, 1))}</p>
               </div>
               <HysteresisChart
                 model={model}
@@ -281,7 +264,7 @@ export function AmocSandbox() {
               variant="outline"
               onClick={() => reset({ H: AMOC_RAPID_MEAN_SV, F: 0 })}
             >
-              RAPID heute, F = 0
+              {t.presetRapid}
             </Button>
             <Button
               type="button"
@@ -289,7 +272,7 @@ export function AmocSandbox() {
               variant="outline"
               onClick={() => reset({ H: 0.5 * K, F: 0 })}
             >
-              50 %-Schwelle
+              {t.presetHalf}
             </Button>
             <Button
               type="button"
@@ -299,7 +282,7 @@ export function AmocSandbox() {
                 reset({ H: AMOC_RAPID_MEAN_SV, F: FOV_REF + 0.02, model: "fold" })
               }
             >
-              Hosing über Falte
+              {t.presetHosing}
             </Button>
             <Button
               type="button"
@@ -307,18 +290,14 @@ export function AmocSandbox() {
               variant="outline"
               onClick={() => reset({ H: 1, F: 0, model: "fold" })}
             >
-              Off-Zustand
+              {t.presetOff}
             </Button>
           </div>
 
           <ContextPanel />
 
           <p className="pb-6 text-xs text-muted-foreground">
-            Parameter aus amoc-utac: σ = 2,2, r = 0,08 a⁻¹, K = 18 Sv, Γ_AMOC =
-            arctanh(0,50)/2,2, Fov_ref = 0,1 Sv, α = −0,05, RAPID-Mittel 17 Sv.
-            Die UTAC-Logistik hat H = 0 als invarianten Kollaps; die Falte ist das
-            didaktische bistabile Normalform-Modell desselben Systemtyps, skaliert
-            nur mit Paketkonstanten.
+            {t.footerParams}
           </p>
         </main>
       </div>
